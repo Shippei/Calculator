@@ -7,11 +7,42 @@ export default class App extends React.Component {
   constructor(props)
   {
     super(props);
-    this.state = {
-      num1:0,
-      num2:0,
+    this.state = 
+    {
       output:0,
     }
+  }
+  event(sval)
+  {
+    let sum = this.state.output;
+    if(sval == '0')
+    {
+      sum = '';
+    }
+    if(sval == '=')
+    {
+      sum = String(eval(sum));
+    }
+    else if(sval == 'AC')
+    {
+      sum = 0;
+    }
+    else if(sval == '+/-')
+    {
+      sum = String(eval(sum))*-1;
+    }
+    else if(sval == '%')
+    {
+      sum = String(eval(sum))/100;
+    }
+    else
+    {
+      sum += sval; 
+    }
+    
+    this.setState({
+      output:sum,
+    });
   }
   render() {
     return (
@@ -30,46 +61,46 @@ export default class App extends React.Component {
 
           <View style={{flex: 1, flexDirection: 'row',justifyContent: 'center'}}>
               <View style={{flex: 1, backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button} onPress={this.onPress} >
+              <TouchableOpacity style={styles.button} onPress={() => this.event('AC')}  >
               <Text>AC</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}}>
-              <TouchableOpacity style={styles.button} onPress={this.onPress} >
+              <TouchableOpacity style={styles.button} onPress={() => this.event('+/-')} >
               <Text>+/-</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button} onPress={this.onPress} >
-              <Text> % </Text> 
+              <TouchableOpacity style={styles.button} onPress={() => this.event('%')} >
+              <Text>%</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button2} onPress={this.onPress} >
-              <Text> / </Text> 
+              <TouchableOpacity style={styles.button2} onPress={() => this.event('/')} >
+              <Text>/</Text> 
               </TouchableOpacity>
               </View>
           </View>
 
            <View style={{flex: 1, flexDirection: 'row',justifyContent: 'center'}}>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 7 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(7)}  >
+              <Text>7</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1, backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 8 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(8)} >
+              <Text>8</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 9 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(9)} >
+              <Text>9</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button2} onPress={this.onPress} >
-              <Text> x </Text> 
+              <TouchableOpacity style={styles.button2} onPress={() => this.event('*')} >
+              <Text>x</Text> 
               </TouchableOpacity>
               </View>
           </View>
@@ -77,46 +108,46 @@ export default class App extends React.Component {
            <View style={{flex: 1, flexDirection: 'row',justifyContent: 'center'}}>
               
               <View style={{flex: 1, backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 4 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(4)} >
+              <Text>4</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 5 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(5)} >
+              <Text>5</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 6 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(6)} >
+              <Text>6</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button2} onPress={this.onPress} >
-              <Text> - </Text> 
+              <TouchableOpacity style={styles.button2} onPress={() => this.event('-')} >
+              <Text>-</Text> 
               </TouchableOpacity>
               </View>
           </View>
 
           <View style={{flex: 1, flexDirection: 'row',justifyContent: 'center'}}>
               <View style={{flex: 1, backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 1 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(1)} >
+              <Text>1</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 2 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(2)} >
+              <Text>2</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 3 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(3)} >
+              <Text>3</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button2}onPress={this.onPress}>
-              <Text> + </Text> 
+              <TouchableOpacity style={styles.button2} onPress={() => this.event('+')}>
+              <Text>+</Text> 
               </TouchableOpacity>
               </View>
           </View>
@@ -124,18 +155,18 @@ export default class App extends React.Component {
           <View style={{flex: 1, flexDirection: 'row',justifyContent: 'center'}}>
               
               <View style={{flex: 2,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> 0 </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event(0)} >
+              <Text>0</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button1} onPress={this.onPress} >
-              <Text> . </Text> 
+              <TouchableOpacity style={styles.button1} onPress={() => this.event('.')} >
+              <Text>.</Text> 
               </TouchableOpacity>
               </View>
               <View style={{flex: 1,  backgroundColor: 'black'}} >
-              <TouchableOpacity style={styles.button2} onPress={this.onPress} >
-              <Text> = </Text> 
+              <TouchableOpacity style={styles.button2} onPress={() => this.event('=')} >
+              <Text>=</Text> 
               </TouchableOpacity>
               </View>
           </View>
@@ -158,7 +189,7 @@ const styles = StyleSheet.create({
     borderRadius:50,
     borderWidth: 1,
     borderColor: 'black',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   button1: 
   {
@@ -167,7 +198,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 1,
     borderColor: '#B2BABB',
-    backgroundColor: '#B2BABB'
+    backgroundColor: '#B2BABB',
   },
   button2: 
   {
